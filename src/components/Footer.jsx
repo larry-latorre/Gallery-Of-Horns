@@ -1,6 +1,11 @@
+import Navbar from 'react-bootstrap/Navbar'
 function Footer (){
     return(
-        <p>Larry Latorre</p>
+        <Navbar bg="dark" variant='dark'>
+            <Navbar.Brand>
+                <p>Larry Latorre</p>
+            </Navbar.Brand>
+        </Navbar>
     )
 }
 

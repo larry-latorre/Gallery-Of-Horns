@@ -1,8 +1,12 @@
+import Navbar from 'react-bootstrap/Navbar'
 function Header(){
     return(
-        <header>
-            <h1>Gallery of Horns</h1>
-        </header>
+        <Navbar bg='dark' variant='dark'>
+            <Navbar.Brand href="#home">
+                <h1>Gallery of Horns</h1>
+            </Navbar.Brand>
+            
+        </Navbar>
         
     )
 }
