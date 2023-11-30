@@ -6,8 +6,9 @@ import Gallery from './components/Gallery';
 import beastData from './data.json';
 import { Container } from 'react-bootstrap';
 import SelectedBeast from './components/SelectedBeast';
+import SelectHorns from './components/Form';
 
-function App() {
+export default function App() {
   const [selectedBeast, setSelectedBeast] = useState(null);
   const [show, setShow] = useState(false);
   const [beasts, setBeasts] = useState(beastData);
@@ -35,6 +36,7 @@ function App() {
   return (
     <Container>
       <Header title="Gallery of Horns" />
+      <SelectHorns />
       <Gallery beastData={beastData} onImageClick={updateSelectedBeast} displayModal={displayModal}  />
       {show && <SelectedBeast selectedBeast={selectedBeast} show={show} handleClose= {handleClose}/>}
       <Footer />
@@ -42,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+
