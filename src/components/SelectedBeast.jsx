@@ -16,8 +16,8 @@ export default function SelectedBeast({selectedBeast, show, handleClose}) {
           <Modal.Title>{selectedBeast.title}</Modal.Title>
         </ModalHeader>
         <ModalBody>
-            <Image src={selectedBeast.image_url}></Image>
-          Woohoo, you are reading this text in a modal! Add your content here.
+            <Image src={selectedBeast.image_url} width="100%" ></Image>
+            <p>{selectedBeast.description}</p>
         </ModalBody>
         <ModalFooter>
           <Button variant="secondary" onClick={handleClose}>
