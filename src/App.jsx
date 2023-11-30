@@ -14,7 +14,7 @@ function App() {
   
   
   function displayModal(name){
-    let newBeasts = beasts.map((beastObj, idx)=>{
+    let newBeasts = beasts.map((beastObj,)=>{
       if (beastObj.title === name){
         setSelectedBeast(beastObj)
         return beastObj;
