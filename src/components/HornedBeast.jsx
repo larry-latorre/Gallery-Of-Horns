@@ -5,25 +5,25 @@ import { Image } from "react-bootstrap";
 
 
 
+
 const HornedBeast = ({displayModal, title, imageUrl, description, onImageClick}) => {
-const [status, setStatus] = useState('like')
-function handleClick(){
-    if (status === 'like'){
-        setStatus('liked')
-    }else {
-        setStatus('like')
-    }
+const [count , setCount] = useState(0)
+
+function updateCount(){
+    setCount(count + 1)
+    onImageClick();
 }
 
 function handleOpenModal(){
 displayModal(title)
+
 }
 
     return(
-    <div onClick={onImageClick}>
+    <div onClick={updateCount}>
         <h2>Gallery of Horns</h2>
         <Image onClick = {handleOpenModal} src={imageUrl} alt={title} title={title} rounded fluid></Image>
-        <h3 onClick={handleClick}>{status}</h3> 
+        <h3>♥ Likes {count}</h3> 
         <p>{description}</p>
     </div>
         

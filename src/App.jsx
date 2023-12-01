@@ -6,7 +6,7 @@ import Gallery from './components/Gallery';
 import beastData from './data.json';
 import { Container } from 'react-bootstrap';
 import SelectedBeast from './components/SelectedBeast';
-import SelectHorns from './components/Form';
+import HornsSelector from './components/HornsSelector';
 
 export default function App() {
   const [selectedBeast, setSelectedBeast] = useState(null);
@@ -32,12 +32,30 @@ export default function App() {
   const updateSelectedBeast = (newSelectedBeast) => {
     setSelectedBeast(newSelectedBeast);
   };
+
+  function handleSelect(choice){
+   
+    let filteredBeastData; 
+
+    if (choice === "1"){
+      filteredBeastData = beastData.filter(beast => beast.horns === 1)
+      }else if(choice === "2"){
+        filteredBeastData = beastData.filter(beast => beast.horns === 2)  
+      }else if(choice === "3"){
+        filteredBeastData = beastData.filter(beast => beast.horns === 3) 
+      }else{
+        filteredBeastData = beastData;
+      }
+      
+      setBeasts(filteredBeastData);
+      console.log(filteredBeastData);
+  }
   
   return (
     <Container>
       <Header title="Gallery of Horns" />
-      <SelectHorns />
-      <Gallery beastData={beastData} onImageClick={updateSelectedBeast} displayModal={displayModal}  />
+      <HornsSelector onSelect={handleSelect}/>
+      <Gallery beastData={beasts} onImageClick={updateSelectedBeast} displayModal={displayModal}  />
       {show && <SelectedBeast selectedBeast={selectedBeast} show={show} handleClose= {handleClose}/>}
       <Footer />
     </Container>
